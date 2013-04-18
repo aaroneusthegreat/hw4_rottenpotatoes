@@ -252,3 +252,8 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+
+
+Then /^the director of "([^"]*)" should be "([^"]*)"$/ do |arg1, arg2|
+  assert_equal arg1, arg2
+end
