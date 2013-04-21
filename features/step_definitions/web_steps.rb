@@ -250,7 +250,9 @@ Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
 end
 
 Then /^the director of "([^"]*)" should be "([^"]*)"$/ do |arg1, arg2|
-  assert_equal arg1, arg2
+	@movie = Movie.where("title = ?",arg1)
+	@director = @movie.first.director
+	assert_equal @director,arg2
 end
 
 Then /^show me the page$/ do
