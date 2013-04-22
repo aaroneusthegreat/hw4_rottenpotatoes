@@ -71,7 +71,7 @@ end
 describe "GET edit" do
   it "assigns the requested movie as @movie" do
    movie = Movie.create! valid_attributes
-   get :edit, :id => movie.id
+   get :edit, :id => movie.find(id)
    assigns(:movie).should eq(movie)
   end
 end
@@ -127,14 +127,14 @@ describe "DELETE destroy" do
   it "destroys the requested movie" do
     movie = Movie.create! valid_attributes
       expect {
-      delete :destroy, :id => movie.id
+      delete :destroy, :id => movie.find(id)
       }.to change(Movie, :count).by(-1)
     end
 
   it "redirects to the movies list" do
     movie = Movie.create! valid_attributes
-    delete :destroy, :id => movie.id
-    response.should redirect_to(movies_url)
+    delete :destroy, :id => movie.find(id)
+    response.should redirect_to(movies_path)
   end
 end
 #End MovieControoler
