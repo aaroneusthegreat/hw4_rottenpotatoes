@@ -34,7 +34,6 @@ describe "GET index" do
       session[:ratings] = {"G"=>"1"}     
       get :index, :sort =>session[:sort], :ratings=> session[:ratings]
       assigns(:movies).should eq([movie])
-
     end
   end
 

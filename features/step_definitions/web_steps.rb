@@ -260,4 +260,11 @@ Then /^show me the page$/ do
 end
 
 
+Given /^a confirmation box saying "([^"]*)" should pop up$/ do |message|
+  @expected_message = message
+end
+
+When /^I want to click "([^"]*)"$/ do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
 
